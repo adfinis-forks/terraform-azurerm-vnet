@@ -18,6 +18,11 @@ output "vnet_address_space" {
   value       = "${azurerm_virtual_network.vnet.address_space}"
 }
 
+output "vnet_subnets" {
+  description = "The ids of subnets created inside the newl vNet"
+  value       = "${azurerm_subnet.subnet.*.id}"
+}
+
 output "vnet_subnet_ids" {
   description = "The ids of subnets created inside the newl vNet"
   value       = "${zipmap(azurerm_subnet.subnet.*.name, azurerm_subnet.subnet.*.id)}"
